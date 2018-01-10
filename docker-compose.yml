@@ -1,0 +1,14 @@
+version: '2.1'
+
+services:
+  cryptoMD:
+    build: ./
+    restart: on-failure
+    ports:
+      - "4013:80"
+    volumes:
+      - ./cryptoMD:/app
+      # - ./.env:/app/.env
+      # - ./.env.dev:/app/.env.dev
+      # - ./.env.prod:/app/.env.prod
+

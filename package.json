@@ -1,0 +1,45 @@
+{
+  "name": "getvoip_renderer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pull": "git pull && npm i && npm stop && npm start",
+    "start": "pm2 start ecosystem.config.js",
+    "stop": "pm2 stop ecosystem.config.js",
+    "start.local": "forever start -w -d -a -l $(pwd)/logfile.log -c 'coffee' app.coffee",
+    "server": "pm2 start ecosystem.config.js --no-daemon",
+    "test": "APP_URL='localhost:80' mocha --bail -u tdd --require coffee-script/register --slow 1000 --timeout 20000 test/app.test.coffee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmcmain/getvoip_renderer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bmcmain/getvoip_renderer/issues"
+  },
+  "homepage": "https://github.com/bmcmain/getvoip_renderer#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.14.0",
+    "coffee-register": "^0.1.2",
+    "coffee-script": "^1.12.6",
+    "cors": "^2.8.4",
+    "express": "^4.13.3",
+    "fs-jetpack": "^0.13.3",
+    "hash-sum": "^1.0.2",
+    "mountenv": "0.0.2",
+    "pm2": "^2.4.2",
+    "promise-break": "^0.1.0",
+    "server-timing": "^1.1.1",
+    "sugar": "^2.0.4"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "github:chaijs/chai-http",
+    "clarify-plus": "^2.0.0",
+    "mocha": "^4.0.1"
+  }
+}
